@@ -145,6 +145,30 @@ system F1, F2;
 			</comment>
 		</query>
 		<query>
+			<formula>F2.Rouge --&gt; not F2.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F1.Rouge --&gt; not F1.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F2.Vert--&gt; F2.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F1.Vert--&gt; F1.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
 			<formula>A[] not deadlock
 			</formula>
 			<comment>

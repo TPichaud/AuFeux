@@ -149,55 +149,49 @@ system F1, F2, Control;
     </system>
 	<queries>
 		<query>
-			<formula>E&lt;&gt;F1.Vert and F2.Vert
+			<formula>A[] F1.Vert imply not (F2.Vert || F2.Orange)
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Orange and F2.Orange
+			<formula>A[] F2.Vert imply not (F1.Vert or F1.Orange)
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Rouge and F2.Rouge
+			<formula>A&lt;&gt; F1.Rouge imply (F2.Vert or F2.Orange)
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Vert and F2.Orange
+			<formula>A&lt;&gt; F2.Rouge imply (F1.Vert or F1.Orange)
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Vert and F2.Rouge
+			<formula>F2.Vert--&gt; F2.Vert
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Orange and F2.Vert
+			<formula>F1.Vert--&gt; F1.Vert
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Rouge and F2.Vert
+			<formula>F2.Rouge --&gt; not F2.Rouge
 			</formula>
 			<comment>
 			</comment>
 		</query>
 		<query>
-			<formula>E&lt;&gt;F1.Orange and F2.Rouge
-			</formula>
-			<comment>
-			</comment>
-		</query>
-		<query>
-			<formula>E&lt;&gt;F1.Rouge and F2.Orange
+			<formula>F1.Rouge --&gt; not F1.Rouge
 			</formula>
 			<comment>
 			</comment>
