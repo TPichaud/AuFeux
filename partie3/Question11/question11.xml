@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan Voiture, PasVoiture, PFRouge, GFRouge;
+</declaration>
+	<template>
+		<name x="5" y="5">grandF</name>
+		<declaration>// Place local declarations here.
+clock t;</declaration>
+		<location id="id0" x="-442" y="-476">
+			<name x="-452" y="-510">OR</name>
+			<label kind="invariant" x="-416" y="-501">t&lt;=1</label>
+		</location>
+		<location id="id1" x="-680" y="-476">
+			<name x="-697" y="-518">Rouge</name>
+		</location>
+		<location id="id2" x="-442" y="-272">
+			<name x="-425" y="-280">Orange</name>
+			<label kind="invariant" x="-425" y="-264">t &lt;=5</label>
+		</location>
+		<location id="id3" x="-442" y="-68">
+			<name x="-425" y="-77">VO</name>
+			<label kind="invariant" x="-452" y="-51">t&lt;=1</label>
+		</location>
+		<location id="id4" x="-680" y="-68">
+			<name x="-697" y="-51">Vert</name>
+		</location>
+		<location id="id5" x="-680" y="-272">
+			<name x="-714" y="-280">RV</name>
+			<label kind="invariant" x="-690" y="-255">t&lt;=1</label>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-578" y="-501">t==1</label>
+			<label kind="synchronisation" x="-595" y="-467">GFRouge!</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-442" y="-408">t==5</label>
+			<label kind="assignment" x="-433" y="-374">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-442" y="-153">t==1</label>
+			<label kind="assignment" x="-442" y="-170">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-595" y="-119">t&gt;=30</label>
+			<label kind="synchronisation" x="-595" y="-93">Voiture?</label>
+			<label kind="assignment" x="-586" y="-68">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-671" y="-187">t==1</label>
+			<label kind="assignment" x="-680" y="-170">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-756" y="-374">PFRouge?</label>
+			<label kind="assignment" x="-671" y="-374">t:=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>petitF</name>
+		<declaration>clock t;</declaration>
+		<location id="id6" x="-272" y="136">
+			<name x="-255" y="127">VO</name>
+			<label kind="invariant" x="-282" y="153">t&lt;=1</label>
+		</location>
+		<location id="id7" x="-272" y="-272">
+			<name x="-282" y="-306">OR</name>
+			<label kind="invariant" x="-282" y="-255">t&lt;=1</label>
+		</location>
+		<location id="id8" x="-510" y="-68">
+			<name x="-544" y="-76">RV</name>
+			<label kind="invariant" x="-520" y="-51">t&lt;=1</label>
+		</location>
+		<location id="id9" x="-272" y="-68">
+			<name x="-255" y="-76">Orange</name>
+			<label kind="invariant" x="-255" y="-60">t &lt;=5</label>
+		</location>
+		<location id="id10" x="-510" y="-272">
+			<name x="-527" y="-314">Rouge</name>
+		</location>
+		<location id="id11" x="-510" y="136">
+			<name x="-527" y="153">Vert</name>
+			<label kind="invariant" x="-535" y="170">t&lt;=30</label>
+		</location>
+		<init ref="id10"/>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-408" y="-297">t==1</label>
+			<label kind="synchronisation" x="-425" y="-263">PFRouge!</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id7"/>
+			<label kind="guard" x="-272" y="-204">t ==5</label>
+			<label kind="assignment" x="-263" y="-170">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-263" y="17">t==1</label>
+			<label kind="assignment" x="-263" y="34">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-416" y="85">t==30</label>
+			<label kind="synchronisation" x="-442" y="110">PasVoiture?</label>
+			<label kind="assignment" x="-416" y="136">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-501" y="17">t==1</label>
+			<label kind="assignment" x="-501" y="34">t:=0</label>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<label kind="synchronisation" x="-586" y="-170">GFRouge?</label>
+			<label kind="assignment" x="-501" y="-170">t:=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>capteur</name>
+		<location id="id12" x="-170" y="0">
+			<name x="-195" y="17">VoitureDetecte</name>
+		</location>
+		<location id="id13" x="-170" y="-136">
+			<name x="-221" y="-170">PasDeVoiture</name>
+		</location>
+		<init ref="id13"/>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="-68" y="-76">PasVoiture!</label>
+			<nail x="-68" y="-34"/>
+			<nail x="-68" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-229" y="-85">Voiture!</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+ProcessGF = grandF();
+ProcessPF = petitF();
+Process3 = capteur();
+// List one or more processes to be composed into a system.
+system ProcessGF,ProcessPF,Process3;
+    </system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;deadlock
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.Rouge and ProcessGF.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.Orange and ProcessGF.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.Vert and ProcessGF.Orange
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.Vert and ProcessGF.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.OR and ProcessPF.t&gt;1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>ProcessGF.Rouge --&gt; ProcessGF.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>Process3.VoitureDetecte --&gt; ProcessPF.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.Orange and ProcessPF.t&gt;5
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessGF.Orange and ProcessGF.t&gt;5
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessGF.RV and ProcessGF.t&gt;1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessGF.OR and ProcessGF.t&gt;1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessGF.VO and ProcessGF.t&gt;1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.RV and ProcessPF.t&gt;1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.VO and ProcessPF.t&gt;1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; ProcessPF.Vert and ProcessPF.t&gt;30
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>

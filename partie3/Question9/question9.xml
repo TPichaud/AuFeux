@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan Voiture, PasVoiture, PFRouge, GFRouge;
+</declaration>
+	<template>
+		<name x="5" y="5">grandF</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-306" y="-238">
+			<name x="-289" y="-246">Rouge</name>
+		</location>
+		<location id="id1" x="-408" y="-340">
+			<name x="-418" y="-374">Vert</name>
+		</location>
+		<location id="id2" x="-408" y="-136">
+			<name x="-433" y="-119">Orange</name>
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-348" y="-306">PFRouge?</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-357" y="-187">GFRouge!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-467" y="-255">Voiture?</label>
+		</transition>
+	</template>
+	<template>
+		<name>petitF</name>
+		<location id="id3" x="0" y="0">
+			<name x="17" y="-8">Orange</name>
+		</location>
+		<location id="id4" x="-102" y="-102">
+			<name x="-119" y="-144">Rouge</name>
+		</location>
+		<location id="id5" x="-102" y="102">
+			<name x="-119" y="119">Vert</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-51" y="-68">PFRouge!</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-51" y="51">PasVoiture?</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-187" y="-17">GFRouge?</label>
+		</transition>
+	</template>
+	<template>
+		<name>capteur</name>
+		<location id="id6" x="-170" y="0">
+			<name x="-195" y="17">VoitureDetecte</name>
+		</location>
+		<location id="id7" x="-170" y="-136">
+			<name x="-221" y="-170">PasDeVoiture</name>
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-68" y="-76">PasVoiture!</label>
+			<nail x="-68" y="-34"/>
+			<nail x="-68" y="-102"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-161" y="-85">Voiture!</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process1 = grandF();
+Process2 = petitF();
+Process3 = capteur();
+// List one or more processes to be composed into a system.
+system Process1,Process2,Process3;
+    </system>
+	<queries>
+	</queries>
+</nta>
