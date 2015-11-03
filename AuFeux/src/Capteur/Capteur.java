@@ -1,12 +1,29 @@
 package Capteur;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import AuFeux.Systeme;
 import GrandFeu.GrandFeu;
+import Interface.MyObservable;
+import Interface.MyObserver;
 import PetitFeu.PetitFeu;
 
-public class Capteur extends Thread{
+public class Capteur extends Thread implements MyObservable{
 
-	StateCapteur currentState;
-	PasVoitureState pvs;
+	private StateCapteur currentState;
+	private PasVoitureState pvs;
+	private VoitureDetecteState vds;
+	
+	private Collection<MyObserver> obs;
+	
+	public Capteur(GrandFeu gf, PetitFeu pf) {
+		obs = new ArrayList<>();
+		pvs = new PasVoitureState(this, gf, pf);
+		vds = new VoitureDetecteState(this, gf, pf);
+		currentState = pvs;
+	}
+	
 	public PasVoitureState getPvs() {
 		return pvs;
 	}
@@ -15,29 +32,35 @@ public class Capteur extends Thread{
 		return vds;
 	}
 
-	VoitureDetecteState vds;
-	
-	public Capteur(GrandFeu gf, PetitFeu pf) {
-		pvs = new PasVoitureState(this, gf, pf);
-		vds = new VoitureDetecteState(this, gf, pf);
-		setState(pvs);
-	}
-
 	public void setState(StateCapteur s){
 		currentState=s;
+		notifiyObservers(currentState);
 		currentState.reachState();
 	}
 	
+	public String toString(){
+		return getClass().getSimpleName()+" on state "+ currentState.getClass().getSimpleName();
+	}
+	
 	public void run(){
-		while (true){
-			try {
-				int s= (int) Math.random()*10 + 1;
-				Thread.sleep(s*1000);
-				setState(vds);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			System.out.println(this);
+			Thread.sleep(Systeme.GLOBAL_TIME_UNIT);
+			setState(getVds());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void addObserver(MyObserver o) {
+		obs.add(o);
+	}
+
+	@Override
+	public void notifiyObservers(Object args) {
+		for (MyObserver o : obs){
+			o.update(this, args);
 		}
 	}
 }

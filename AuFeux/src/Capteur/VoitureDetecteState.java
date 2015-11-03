@@ -15,5 +15,7 @@ public class VoitureDetecteState extends StateCapteur{
 	public void reachState() {
 		gf.voiture();
 		pf.voiture();
+		
+		capteur.setState(capteur.getPvs());
 	}
 }

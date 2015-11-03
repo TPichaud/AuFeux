@@ -1,19 +1,19 @@
-package GrandFeu;
+package PetitFeu;
 
 import Interface.FeuState;
 
-public class RougeGFState extends FeuState{
+public class RougePFState extends FeuState{
 
-	public RougeGFState(GrandFeu gf) {
-		this.feu=gf;
+	public RougePFState(PetitFeu pf) {
+		this.feu=pf;
 	}
 	
 	public void reachState(){
-		feu.GFRouge();
+		feu.PFRouge();
 	}
 
 	@Override
-	public boolean PFRouge() {
+	public boolean GFRouge() {
 		feu.resetClock();
 		feu.setState(feu.getRougeVertState());
 		return true;

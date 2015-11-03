@@ -1,18 +1,16 @@
-package GrandFeu;
+package PetitFeu;
 
 import AuFeux.Systeme;
 import Interface.FeuState;
 
-public class VertGFState extends FeuState{
+public class VertPFState extends FeuState{
 
-	public VertGFState(GrandFeu gf) {
-		this.feu=gf;
+	public VertPFState(PetitFeu pf){
+		feu=pf;
 	}
 	
-	@Override
-	public boolean voiture() {
-		while (feu.getClock()<30) {
-			
+	public boolean PasVoiture(){
+		while (feu.getClock()<30){
 			try {
 				Thread.sleep(Systeme.GLOBAL_TIME_UNIT);
 			} catch (InterruptedException e) {
@@ -25,11 +23,4 @@ public class VertGFState extends FeuState{
 		
 		return true;
 	}
-
-	@Override
-	public void reachState() {
-		feu.resetClock();
-	}
-
 }
- 
