@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+clock t;</declaration>
+	<template>
+		<name x="5" y="5">Feu1</name>
+		<declaration>// Place local declarations here.
+clock t1;</declaration>
+		<location id="id0" x="-1666" y="-1156">
+			<name x="-1676" y="-1190">Orange</name>
+			<label kind="invariant" x="-1640" y="-1173">t1&lt;=5</label>
+		</location>
+		<location id="id1" x="-1768" y="-1054">
+			<name x="-1778" y="-1088">Rouge</name>
+			<label kind="invariant" x="-1778" y="-1037">t1&lt;=35</label>
+		</location>
+		<location id="id2" x="-1870" y="-1156">
+			<name x="-1880" y="-1190">Vert</name>
+			<label kind="invariant" x="-1938" y="-1173">t1&lt;=25</label>
+		</location>
+		<init ref="id2"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-1938" y="-1105">t1==35</label>
+			<label kind="assignment" x="-1861" y="-1105">t1:=25</label>
+			<nail x="-1836" y="-1054"/>
+			<nail x="-1870" y="-1088"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-1657" y="-1105">t1==5</label>
+			<label kind="assignment" x="-1717" y="-1105">t1:=0</label>
+			<nail x="-1666" y="-1088"/>
+			<nail x="-1700" y="-1054"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-1793" y="-1181">t1==25</label>
+			<label kind="assignment" x="-1793" y="-1156">t1:=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>Feu2</name>
+		<declaration>clock t2;</declaration>
+		<location id="id3" x="-1598" y="-918">
+			<name x="-1608" y="-952">Rouge</name>
+			<label kind="invariant" x="-1608" y="-901">t2&lt;=35</label>
+		</location>
+		<location id="id4" x="-1700" y="-1020">
+			<name x="-1710" y="-1054">Vert</name>
+			<label kind="invariant" x="-1768" y="-1037">t2&lt;=25</label>
+		</location>
+		<location id="id5" x="-1496" y="-1020">
+			<name x="-1506" y="-1054">Orange</name>
+			<label kind="invariant" x="-1470" y="-1037">t2&lt;=5</label>
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-1768" y="-969">t2==35</label>
+			<label kind="assignment" x="-1691" y="-969">t2:=25</label>
+			<nail x="-1666" y="-918"/>
+			<nail x="-1700" y="-952"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-1487" y="-969">t2==5</label>
+			<label kind="assignment" x="-1547" y="-969">t2:=0</label>
+			<nail x="-1496" y="-952"/>
+			<nail x="-1530" y="-918"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-1623" y="-1045">t2==25</label>
+			<label kind="assignment" x="-1623" y="-1020">t2:=0</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+F1 = Feu1();
+F2 = Feu2();
+// List one or more processes to be composed into a system.
+system F1, F2;
+    </system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;F1.Vert and F2.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Orange and F2.Orange
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Rouge and F2.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Vert and F2.Orange
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Vert and F2.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Orange and F2.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Rouge and F2.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Orange and F2.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;F1.Rouge and F2.Orange
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F2.Rouge --&gt; not F2.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F1.Rouge --&gt; not F1.Rouge
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F2.Vert--&gt; F2.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>F1.Vert--&gt; F1.Vert
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>A[] not deadlock
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>
