@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TPN name="/home/julien/Projects/AuFeux/partie1/Feu_simple.xml">
+  <place id="1" label="R1" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="5"> 
+         <position x="900.666266667" y="244.00004"/> 
+         <deltaLabel deltax="19.777777778" deltay="-9.111111112"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="2" label="V1" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="3"> 
+         <position x="1021.9996" y="421.333373334"/> 
+         <deltaLabel deltax="10" deltay="10"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <place id="3" label="O1" initialMarking="0" eft="0" lft="inf"> 
+      <graphics color="4"> 
+         <position x="780.88848889" y="421.333373334"/> 
+         <deltaLabel deltax="-18.888888888" deltay="-1.111111111"/> 
+      </graphics> 
+      <scheduling gamma="0" omega="0"/> 
+  </place> 
+
+  <transition id="1" label="RV1"  eft="0" lft="inf"  obs="1"> 
+     <graphics color="1"> 
+        <position x="963.332933335" y="332.666706667"/> 
+        <deltaLabel deltax="28.222222222" deltay="-8.666666667"/> 
+     </graphics> 
+  </transition> 
+
+  <transition id="2" label="VO1"  eft="0" lft="inf"  obs="1"> 
+     <graphics color="1"> 
+        <position x="902.666266667" y="420.666706667"/> 
+        <deltaLabel deltax="10" deltay="10"/> 
+     </graphics> 
+  </transition> 
+
+  <transition id="3" label="OR1"  eft="0" lft="inf"  obs="1"> 
+     <graphics color="1"> 
+        <position x="841.332933334" y="332.666706666"/> 
+        <deltaLabel deltax="-23.777777778" deltay="-8.222222223"/> 
+     </graphics> 
+  </transition> 
+
+  <arc place="1" transition="1" type="PlaceTransition" weight="1"> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="2" transition="1" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="2" transition="2" type="PlaceTransition" weight="1"> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="3" transition="2" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <arc place="3" transition="3" type="PlaceTransition" weight="1"> 
+    <nail xnail="0" ynail="0"/> 
+    <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+ 
+
+  <arc place="1" transition="3" type="TransitionPlace" weight="1"> 
+     <nail xnail="0" ynail="0"/> 
+     <graphics  color="0"> 
+     </graphics> 
+  </arc> 
+
+  <preferences> 
+      <colorPlace  c0="#1bc7cb"  c1="gray"  c2="cyan"  c3="green"  c4="yellow"  c5="brown" /> 
+ 
+      <colorTransition  c0="yellow"  c1="gray"  c2="cyan"  c3="green"  c4="SkyBlue2"  c5="brown" /> 
+ 
+      <colorArc  c0="black"  c1="gray"  c2="blue"  c3="#beb760"  c4="#be5c7e"  c5="#46be90" /> 
+ 
+  </preferences> 
+ </TPN> 
+
