@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<TPN name="/comptes/E130154X/M2/FSE/Project/Graphe_marquage.xml">
+<TPN name="/home/julien/Projects/AuFeux/partie1/Graphe_marquage.xml">
   <place id="1" label="V1R2" initialMarking="0" eft="0" lft="inf"> 
       <graphics color="0"> 
          <position x="811" y="211"/> 
@@ -35,7 +35,7 @@
   <place id="5" label="O1V2" initialMarking="0" eft="0" lft="inf"> 
       <graphics color="0"> 
          <position x="991" y="331"/> 
-         <deltaLabel deltax="22.0" deltay="9.0"/> 
+         <deltaLabel deltax="22.0" deltay="3.666666667"/> 
       </graphics> 
       <scheduling gamma="0" omega="0"/> 
   </place> 
@@ -43,7 +43,7 @@
   <place id="6" label="O1O2" initialMarking="0" eft="0" lft="inf"> 
       <graphics color="0"> 
          <position x="1171" y="331"/> 
-         <deltaLabel deltax="10" deltay="10"/> 
+         <deltaLabel deltax="25.33333333" deltay="-4.666666667"/> 
       </graphics> 
       <scheduling gamma="0" omega="0"/> 
   </place> 
