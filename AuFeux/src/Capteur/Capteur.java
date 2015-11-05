@@ -3,10 +3,10 @@ package Capteur;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import Annexe.MyObservable;
+import Annexe.MyObserver;
 import AuFeux.Systeme;
 import GrandFeu.GrandFeu;
-import Interface.MyObservable;
-import Interface.MyObserver;
 import PetitFeu.PetitFeu;
 
 public class Capteur extends Thread implements MyObservable{

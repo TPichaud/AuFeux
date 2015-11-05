@@ -1,7 +1,7 @@
 package PetitFeu;
 
+import Annexe.*;
 import GrandFeu.GrandFeu;
-import Interface.*;
 
 public class PetitFeu extends Feu{
 

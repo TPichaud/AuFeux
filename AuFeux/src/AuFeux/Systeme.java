@@ -1,8 +1,8 @@
 package AuFeux;
 
+import Annexe.MyObserver;
 import Capteur.Capteur;
 import GrandFeu.GrandFeu;
-import Interface.MyObserver;
 import PetitFeu.PetitFeu;
 
 public abstract class Systeme implements MyObserver{

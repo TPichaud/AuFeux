@@ -1,7 +1,7 @@
 package AuFeux;
 
-import Interface.Clock;
-import Interface.MyObservable;
+import Annexe.Clock;
+import Annexe.MyObservable;
 
 public class SystemConsoleUI extends Systeme {
 	
@@ -13,7 +13,7 @@ public class SystemConsoleUI extends Systeme {
 	
 	@Override
 	public void update(MyObservable o, Object args) {
-		if (displayClocks ||  !(o instanceof Clock) )
+		if (displayClocks || !(o instanceof Clock) )
 			System.out.println(o);
 	}
 	

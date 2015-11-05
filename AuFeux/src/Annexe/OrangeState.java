@@ -1,17 +1,18 @@
-package Interface;
+package Annexe;
 
+import Annexe.FeuState;
 import AuFeux.Systeme;
 
-public class RougeVertState extends FeuState{
+public class OrangeState extends FeuState{
 
-	public RougeVertState(Feu gf) {
-		this.feu=gf;
+	public OrangeState(Feu f) {
+		this.feu=f;
 	}
 
 	@Override
 	public void reachState() {
 		
-		while (feu.getClock()<1){
+		while (feu.getClock()<=5){
 			try {
 				Thread.sleep(Systeme.GLOBAL_TIME_UNIT);
 			} catch (InterruptedException e) {
@@ -20,7 +21,7 @@ public class RougeVertState extends FeuState{
 		}
 		
 		feu.resetClock();
-		feu.setState(feu.getVertState());
+		feu.setState(feu.getOrangeRougeState());
 	}
 
 }

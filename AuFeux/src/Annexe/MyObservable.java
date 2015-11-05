@@ -1,4 +1,4 @@
-package Interface;
+package Annexe;
 
 public interface MyObservable {
 	public void addObserver(MyObserver o);

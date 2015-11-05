@@ -1,7 +1,7 @@
 package PetitFeu;
 
+import Annexe.FeuState;
 import AuFeux.Systeme;
-import Interface.FeuState;
 
 public class VertPFState extends FeuState{
 

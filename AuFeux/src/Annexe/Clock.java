@@ -1,4 +1,4 @@
-package Interface;
+package Annexe;
 
 import java.util.ArrayList;
 import java.util.Collection;

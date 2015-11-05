@@ -1,7 +1,7 @@
 package GrandFeu;
 
+import Annexe.FeuState;
 import AuFeux.Systeme;
-import Interface.FeuState;
 
 public class VertGFState extends FeuState{
 

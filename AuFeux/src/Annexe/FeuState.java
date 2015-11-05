@@ -1,4 +1,4 @@
-package Interface;
+package Annexe;
 
 public abstract class FeuState {
 	

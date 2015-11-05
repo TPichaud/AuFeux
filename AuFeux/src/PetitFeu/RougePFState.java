@@ -1,6 +1,6 @@
 package PetitFeu;
 
-import Interface.FeuState;
+import Annexe.FeuState;
 
 public class RougePFState extends FeuState{
 

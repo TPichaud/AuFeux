@@ -1,11 +1,11 @@
 package GrandFeu;
 
-import Interface.Feu;
-import Interface.OrangeRougeState;
-import Interface.OrangeState;
-import Interface.RougeVertState;
-import Interface.VertOrangeState;
-import Interface.Clock;
+import Annexe.Clock;
+import Annexe.Feu;
+import Annexe.OrangeRougeState;
+import Annexe.OrangeState;
+import Annexe.RougeVertState;
+import Annexe.VertOrangeState;
 import PetitFeu.PetitFeu;
 
 public class GrandFeu extends Feu{
