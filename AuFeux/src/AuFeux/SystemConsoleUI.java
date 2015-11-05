@@ -1,5 +1,7 @@
 package AuFeux;
 
+import java.util.Scanner;
+
 import Annexe.Clock;
 import Annexe.MyObservable;
 
@@ -18,7 +20,17 @@ public class SystemConsoleUI extends Systeme {
 	}
 	
 	public static void main(String[] args) {
-		SystemConsoleUI scui = new SystemConsoleUI(false);
+		
+		Scanner sc =new Scanner(System.in);
+		
+		System.out.println("Time unit (ms): ");
+		Systeme.GLOBAL_TIME_UNIT = sc.nextInt();
+		
+		System.out.println("Display clock (true/false): ");
+		SystemConsoleUI scui = new SystemConsoleUI(sc.nextBoolean());
+		
+		sc.close();
+		
 		scui.run();
 	}
 
