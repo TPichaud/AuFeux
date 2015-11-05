@@ -2,41 +2,57 @@ package GrandFeu;
 
 import Annexe.Clock;
 import Annexe.Feu;
-import Annexe.OrangeRougeState;
-import Annexe.OrangeState;
-import Annexe.RougeVertState;
-import Annexe.VertOrangeState;
 import PetitFeu.PetitFeu;
 
+/**
+ * The Class GrandFeu.
+ */
 public class GrandFeu extends Feu{
 	
 	PetitFeu pf;
 	
+	/**
+	 * Instantiates a new grand feu.
+	 */
 	public GrandFeu(){
 		this(null);
 	}
 	
+	/**
+	 * Instantiates a new grand feu.
+	 *
+	 * @param pf the PetitFeu
+	 */
 	public GrandFeu(PetitFeu pf) {
 		super();
 		this.pf=pf;
 		c = new Clock(this);
 		vertState = new VertGFState(this);
-		vertOrangeState = new VertOrangeState(this);
-		orangeState=new OrangeState(this);
-		orangeRougeState = new OrangeRougeState(this);
 		rougeState = new RougeGFState(this);
-		rougeVertState = new RougeVertState(this);
 		currentState = vertState;
 	}
 	
+	/**
+	 * Sets the petit feu.
+	 *
+	 * @param pf the new petit feu
+	 */
 	public void setPetitFeu(PetitFeu pf){
 		this.pf=pf;
 	}
 	
+	//SIGNALS
+	
+	/**
+	 * @see Annexe.Feu#GFRouge()
+	 */
 	public void GFRouge(){
 		pf.GFRouge();
 	}
 	
+	/**
+	 * @see Annexe.Feu#voiture()
+	 */
 	public void voiture() {
 		Thread t = new Thread(new Runnable() {
 			
@@ -55,6 +71,9 @@ public class GrandFeu extends Feu{
 		t.start();
 	}
 
+	/**
+	 * @see Annexe.Feu#PFRouge()
+	 */
 	public void PFRouge(){
 		Thread t = new Thread(new Runnable() {
 			@Override
@@ -68,7 +87,6 @@ public class GrandFeu extends Feu{
 				}
 			}
 		});
-
 		t.start();
 	}
 }

@@ -4,14 +4,25 @@ import AuFeux.Systeme;
 import GrandFeu.GrandFeu;
 import PetitFeu.PetitFeu;
 
+/**
+ * The Class PasVoitureState.
+ */
 public class PasVoitureState extends StateCapteur {
 
+	/**
+	 * Instantiates a new pas voiture state.
+	 *
+	 * @param c the Capteur
+	 * @param gf the GrandFeu
+	 * @param pf the PetitFeu
+	 */
 	public PasVoitureState(Capteur c, GrandFeu gf, PetitFeu pf) {
-		capteur =c;
-		this.gf=gf;
-		this.pf=pf;
+		super(c,gf,pf);
 	}
 
+	/**
+	 * @see Capteur.StateCapteur#reachState()
+	 */
 	@Override
 	public void reachState() {
 		gf.PasVoiture();

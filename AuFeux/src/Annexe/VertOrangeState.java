@@ -2,12 +2,23 @@ package Annexe;
 
 import AuFeux.Systeme;
 
+/**
+ * The Class VertOrangeState.
+ */
 public class VertOrangeState extends FeuState{
 
-	public VertOrangeState(Feu gf) {
-		this.feu=gf;
+	/**
+	 * Instantiates a new vert orange state.
+	 *
+	 * @param f the Feu
+	 */
+	public VertOrangeState(Feu f) {
+		this.feu = f;
 	}
 
+	/**
+	 * @see Annexe.FeuState#reachState()
+	 */
 	@Override
 	public void reachState() {
 		while(feu.getClock()<1){
