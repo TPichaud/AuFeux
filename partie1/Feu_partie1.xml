@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<TPN name="/comptes/E130154X/M2/FSE/Feu1.xml">
+<TPN name="/home/julien/Projects/AuFeux/partie1/Feu_partie1.xml">
   <place id="1" label="R1" initialMarking="1" eft="0" lft="inf"> 
       <graphics color="5"> 
          <position x="571" y="181"/> 
@@ -19,7 +19,7 @@
   <place id="3" label="O1" initialMarking="0" eft="0" lft="inf"> 
       <graphics color="4"> 
          <position x="451" y="361"/> 
-         <deltaLabel deltax="-32.0" deltay="-4.0"/> 
+         <deltaLabel deltax="-22.666666667" deltay="-6.0"/> 
       </graphics> 
       <scheduling gamma="0" omega="0"/> 
   </place> 
@@ -51,7 +51,7 @@
   <place id="7" label="P7" initialMarking="0" eft="0" lft="inf"> 
       <graphics color="2"> 
          <position x="871" y="481"/> 
-         <deltaLabel deltax="10" deltay="10"/> 
+         <deltaLabel deltax="5" deltay="18.0"/> 
       </graphics> 
       <scheduling gamma="0" omega="0"/> 
   </place> 
@@ -59,7 +59,7 @@
   <place id="8" label="P8" initialMarking="0" eft="0" lft="inf"> 
       <graphics color="2"> 
          <position x="871" y="121"/> 
-         <deltaLabel deltax="10" deltay="10"/> 
+         <deltaLabel deltax="0" deltay="13.0"/> 
       </graphics> 
       <scheduling gamma="0" omega="0"/> 
   </place> 
